@@ -7,12 +7,12 @@ const resetBtn = document.getElementById("invoice");
 const idBtn = document.getElementById("idBtn");
 
 // HTML
-const renderEl = document.getElementById("render");
-const totalEl = document.getElementById("total");
+let renderEl = document.getElementById("render");
+let totalEl = document.getElementById("total");
 
 // array
-const serviceArr = [];
-const valueArr = [];
+let serviceArr = [];
+let valueArr = [];
 
 // Displays the total amount from array
 function displayTotal() {
@@ -28,7 +28,7 @@ function displayService() {
 
 // Remove wash from array and html
 function removeWash() {
-  let index = serviceArr.indexOf(
+  const index = serviceArr.indexOf(
     `<div class="item"><p>Wash Car</p> <button class="idBtn" id="idBtn" onclick="removeWash()">Remove</button> <p class="price"><span class="dollar">$</span>10</p></div>`
   );
   serviceArr.splice(index, 1);
@@ -40,7 +40,7 @@ function removeWash() {
 
 // remove mow from array and html
 function removeMow() {
-  let index = serviceArr.indexOf(
+  const index = serviceArr.indexOf(
     `<div class="item"><p>Mow Lawn</p> <button class="idBtn" id="idBtn" onclick="removeMow()">Remove</button> <p class="price"><span class="dollar">$</span>20</p></div>`
   );
   serviceArr.splice(index, 1);
@@ -52,7 +52,7 @@ function removeMow() {
 
 // remove weed from array and html
 function removeWeed() {
-  let index = serviceArr.indexOf(
+  const index = serviceArr.indexOf(
     `<div class="item"><p>Pull Weeds</p> <button class="idBtn" id="idBtn" onclick="removeWeed()">Remove</button> <p class="price"><span class="dollar">$</span>30</p></div>`
   );
   serviceArr.splice(index, 1);
@@ -100,7 +100,7 @@ weedBtn.addEventListener("click", () => {
 resetBtn.addEventListener("click", () => {
   serviceArr = [];
   valueArr = [];
-  render.innerHTML = "";
+  displayService();
   displayTotal();
   washBtn.disabled = false;
   mowBtn.disabled = false;
